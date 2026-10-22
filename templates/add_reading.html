@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Add Reading · PowerWatch{% endblock %}
+{% block content %}
+<section class="page-heading"><p class="eyebrow">DATA ENTRY</p><h1>Add an electricity reading</h1><p class="muted">Enter a measured value or use the dashboard's simulation button for demo data.</p></section>
+<section class="panel form-panel">
+  <form method="post">
+    <label for="device">Device or room name</label>
+    <input id="device" name="device" placeholder="e.g. Air Conditioner" maxlength="80" required>
+    <label for="energy_kwh">Energy used (kWh)</label>
+    <input id="energy_kwh" name="energy_kwh" type="number" min="0.01" max="10000" step="0.01" placeholder="e.g. 1.25" required>
+    <p class="hint">The reading is saved with the current date and time.</p>
+    <button class="button" type="submit">Save Reading</button>
+  </form>
+</section>
+{% endblock %}

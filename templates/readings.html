@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}All Readings · PowerWatch{% endblock %}
+{% block content %}
+<section class="page-heading"><p class="eyebrow">HISTORY</p><h1>All electricity readings</h1><p class="muted">Every reading saved in the local database.</p></section>
+<section class="panel">
+  <div class="table-wrap"><table><thead><tr><th>#</th><th>Date and time</th><th>Device / room</th><th>Energy (kWh)</th></tr></thead><tbody>
+  {% for item in readings %}
+  <tr><td>{{ item.id }}</td><td>{{ item.recorded_at }}</td><td>{{ item.device }}</td><td>{{ "%.2f"|format(item.energy_kwh) }}</td></tr>
+  {% else %}<tr><td colspan="4">No readings available.</td></tr>{% endfor %}
+  </tbody></table></div>
+</section>
+{% endblock %}
